@@ -1,0 +1,12 @@
+---
+# conda environments needed for the workflow should be stored here.
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - click
+  - numpy
+  - pandas
+  - python
+  - scikit-learn

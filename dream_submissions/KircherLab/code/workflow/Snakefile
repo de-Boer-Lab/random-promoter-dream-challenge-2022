@@ -1,0 +1,42 @@
+# The main entry point of your workflow.
+# After configuring, running snakemake -n in a clone of this repository should successfully execute a dry-run of the workflow.
+
+
+report: "report/workflow.rst"
+
+
+# Allow users to fix the underlying OS via singularity.
+container: "docker://continuumio/miniconda3"
+
+
+##### check snakemake min version #####
+
+from snakemake.utils import min_version
+
+min_version("7.8.2")
+
+
+include: "rules/common.smk"
+
+
+rule all:
+    input:
+        expand(
+            "results/performance/cor.{training}.{model}.{data_type}.tsv.gz",
+            training=list(config["trainings"].keys()),
+            model=list(config["models"].keys()),
+            data_type=["train", "test", "validation"],
+        ),
+        expand(
+            "results/final_prediction/{training}.{model}.tsv.gz",
+            training=list(config["trainings"].keys()),
+            model=list(config["models"].keys()),
+        ),
+        expand(
+            "results/final_prediction/{training}.{model}.json",
+            training=list(config["trainings"].keys()),
+            model=list(config["models"].keys()),
+        ),
+
+
+include: "rules/main.smk"

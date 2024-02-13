@@ -1,0 +1,88 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+description: snakemake configuration file
+
+type: object
+
+# possible entries of the config file and which type they should be
+properties:
+  synapse_path:
+    type: string
+  train_sequences:
+    type: string
+  test_sequences:
+    type: string
+  seed:
+    type: integer
+  trainings:
+    type: object
+    additionalProperties:
+      type: object
+      properties:
+        gc_correction:
+          type: boolean
+        replacement:
+          type: boolean
+        bucket_fraction:
+          type: number
+          exclusiveMinimum: 0.0
+          maximum: 1.0
+        bucket_size:
+          type: integer
+          minimum: 1
+        fit_sequence:
+          type: boolean  
+      required:
+        - gc_correction
+        - replacement
+  models:
+    type: object
+    additionalProperties:
+      type: object
+      properties:
+        label_columns_start:
+          type: integer
+        label_columns_stop:
+          type: integer
+        model_mode:
+          type: string
+          enum:
+            - regression
+            - classification
+        model_type:
+          type: string
+          enum:
+            - standard
+            - simplified
+            - ResNet1D_Classification
+            - ResNet1D_Regression
+            - ResNet1D_Classification_medium
+            - ResNet1D_Regression_medium
+            - ResNet1D_Classification_dropout
+            - ResNet1D_Regression_dropout
+        loss:
+          type: string
+          enum:
+            - MSE
+            - Poission
+            - Huber
+            - CategoricalCrossentropy
+        flags:
+            type: array
+            items:
+              type: string
+              enum:
+                - tensorboard
+                - SavedModel
+      required:
+        - model_type
+
+  
+
+# entries that have to be in the config file for successful validation
+required:
+  - synapse_path
+  - train_sequences
+  - test_sequences
+  - trainings
+  - models

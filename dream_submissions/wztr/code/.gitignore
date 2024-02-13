@@ -1,0 +1,9 @@
+env
+checkpoint
+data
+*.egg-info
+explore
+*__pycache__*
+*slurm*.out
+*logs*
+output

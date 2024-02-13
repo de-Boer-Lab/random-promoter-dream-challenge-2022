@@ -1,0 +1,49 @@
+# Object files
+*.o
+*.ko
+*.obj
+*.elf
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Libraries
+*.lib
+*.a
+*.la
+*.lo
+
+# Shared objects (inc. Windows DLLs)
+*.dll
+*.so
+*.so.*
+*.dylib
+
+# Executables
+*.exe
+*.out
+*.app
+*.i*86
+*.x86_64
+*.hex
+
+# Debug files
+*.dSYM/
+
+
+glove/build/glove
+*.swp
+
+# OS X stuff
+._*
+/glove/cooccurrence.bin
+/glove/cooccurrence.shuf.bin
+/glove/text8
+/glove/vectors.bin
+/glove/vectors.txt
+/glove/vocab.txt
+/data/test_sequences.txt
+/data/train_sequences.txt
+
+/.idea

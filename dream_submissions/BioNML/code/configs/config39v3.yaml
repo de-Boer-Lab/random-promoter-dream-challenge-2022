@@ -1,0 +1,95 @@
+# module to load
+model_type: "BioNML"
+
+# model spec
+model:
+  # input and scanning
+  sequence_length: 110
+  motif_size: 2048
+  kmer_size: 5120
+  motif_length_max: 10
+  kmer_length_max: 6
+  motif_scanning_trainable: True
+  kmer_scanning_trainable: False
+  motif_scanning_activation: "linear"
+  kmer_scanning_activation: "linear"
+  embedding_batch_norm: True
+  use_kmer_embedding: True
+  embedding_activation: "linear"
+  fwd_rc_combine_type: "Concat"
+  wide_embedding_to_latent_repr: True
+  repr_residual_expansion: True
+  latent_inception_block_combine_type: "Concat"
+
+  # bottleneck dim
+  latent_dim: 512
+  latent_activation: "linear"
+
+  ## OC model specific
+  latent_OC_dim: 64
+
+  # pre transformer embedding
+  use_repr_token: True
+  use_pos_embedding: True
+
+  # transformer
+  encoder_layer_number: 12
+  num_heads:  16
+  mlp_dim: 512
+  dropout: 0.2
+  dropout_transformer: 0.1
+
+  ## cross-attention only (introduce activation to suppress similarity)
+  query_dense_activation: "softsign"
+
+  # output
+  representation_dim: 512
+  output_activations: ["linear", "linear"]
+  pred_repr_kernel_l2: 0.0002
+  pred_repr_activity_l2: 0.0
+
+
+# preprocessing
+preprocessing:
+  fix_length: 110
+  trim_pad_unique_oligo: True
+  oligo_random_padding: False
+  model_unknown: False
+  centering: True
+
+
+# pre_train
+pre_train:
+  optimizer_type: "Adamax"
+  learning_rate: 0.001
+  learning_rate_schedule: False
+  max_epochs: 50
+  schedule_name: "CosineDecayRestarts"
+  schedule:
+    initial_learning_rate: 0.005
+    alpha: 0.1
+    first_decay_steps: 2000
+    t_mul: 1.0
+    m_mul: 0.96
+
+
+# fine_tune
+fine_tune:
+  epochs: 5
+  optimizer_type: "Adamax"
+  learning_rate_schedule: True
+  schedule_name: "PiecewiseConstantDecay"
+  schedule:
+    boundaries: [8160,16320,24480,32640,50000]
+    values: [0.0001,0.00005,0.00002,0.00001,0.000005,0.000001]
+  learning_rate: 0.0001
+  loss_name: "Huber"
+  loss:
+    delta: 0.85
+    name: "Huber"
+
+
+
+# others
+batch_size: 512
+sample_weight_limit: 2

@@ -1,0 +1,8 @@
+torch==1.12.0
+pandas
+numpy
+scikit-learn
+tqdm
+einops
+x_transformers==0.28.4
+scipy

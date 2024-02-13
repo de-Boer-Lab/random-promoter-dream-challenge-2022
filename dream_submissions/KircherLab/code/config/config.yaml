@@ -1,0 +1,73 @@
+# This file should contain everything to configure the workflow on a global scale.
+# In case of sample based data, it should be complemented by a samples.tsv file that contains
+# one row per sample. It can be parsed easily via pandas.
+
+## genearl options ##
+
+synapse_path: "resources/data_synapse" # this should be the path to the DREAM_challenge files downloaded from Synapse
+train_sequences: "train_sequences.txt" # input data file for training
+test_sequences: "test_sequences.txt" # test sequences for 
+
+seed: 42 # seed for random functions; set for reproducible results
+
+## training options ##
+
+trainings:
+  all_input:
+    gc_correction: False
+    replacement: False
+    fit_sequence: True
+  gc_size200K:
+    gc_correction: True
+    replacement: False
+    bucket_size: 200000
+    fit_sequence: True
+  gc_size200K_rep:
+    gc_correction: True
+    replacement: True
+    bucket_size: 200000
+    fit_sequence: True
+  size200K:
+    gc_correction: False
+    replacement: False
+    bucket_size: 200000
+    fit_sequence: True
+  size200K_rep:
+    gc_correction: False
+    replacement: True
+    bucket_size: 200000
+    fit_sequence: True
+  gc_frac08:
+    gc_correction: True
+    replacement: False
+    bucket_fraction: 0.8
+    fit_sequence: True
+  gc_frac08_rep:
+    gc_correction: True
+    replacement: True
+    bucket_fraction: 0.8
+    fit_sequence: True
+  frac08:
+    gc_correction: False
+    replacement: False
+    bucket_fraction: 0.8
+    fit_sequence: True
+  frac08_rep:
+    gc_correction: False
+    replacement: True
+    bucket_fraction: 0.8
+    fit_sequence: True
+  gc_frac08_size200K:
+    gc_correction: True
+    replacement: False
+    bucket_fraction: 0.8
+    bucket_size: 200000
+    fit_sequence: True
+
+models:
+  final:
+    model_type: standard
+    loss: MSE
+    flags:
+      - tensorboard
+      - SavedModel
