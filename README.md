@@ -17,3 +17,9 @@ More details about the findings of the consortium are available in [biorxiv](htt
 The `environment.yml` file specifies all required libraries for this project. If you're managing virtual environments with Anaconda, you can directly install these dependencies using the command:
 
 `conda env create -n dream -f environment.yml`
+
+## Prix Fixe Framework
+
+For a comprehensive example of setting up and running a complete pipeline of the DREAM-optimized models using the Prix Fixe framework, refer to [this tutorial](https://github.com/de-Boer-Lab/random-promoter-dream-challenge-2022/blob/main/DREAMNets_BuildModel_Train_and_Predict.ipynb).
+
+To convert your own model architectures within the prixfixe framework, refer to [this tutorial](https://github.com/de-Boer-Lab/random-promoter-dream-challenge-2022/blob/main/Test_Your_NN_In_Prix_Fixe.ipynb) that contains `ResNet` implementation example.
