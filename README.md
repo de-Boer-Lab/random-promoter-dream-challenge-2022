@@ -8,6 +8,10 @@ The top-performing solutions in the challenge exceeded performance of all previo
 
 Finally, we benchmarked the DREAM models on Drosophila and human datasets, including predicting expression and open chromatin from DNA sequence, where they consistently surpassed existing state-of-the-art performances. Overall, we demonstrate that high-quality gold-standard genomics datasets can drive significant progress in model development.
 
+## Resources
+
+More details about the findings of the consortium are available in [biorxiv](https://www.biorxiv.org/content/10.1101/2023.04.26.538471v2). The raw and processed data are available in [GEO](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE254493) and [Zenodo](https://zenodo.org/records/10633252), respectively. All submissions made at the end of DREAM Challenge are available [here](https://github.com/de-Boer-Lab/random-promoter-dream-challenge-2022/tree/main/dream_submissions). 
+
 ## Setting Up Your Environment
 
 The `environment.yml` file specifies all required libraries for this project. If you're managing virtual environments with Anaconda, you can directly install these dependencies using the command:
