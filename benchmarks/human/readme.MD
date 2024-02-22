@@ -4,4 +4,4 @@ This section contains the code for running the DREAM-optimized models on MPRA da
 
 If you want to use this code on your data, format your data according to this [sample file](https://github.com/de-Boer-Lab/random-promoter-dream-challenge-2022/blob/main/benchmarks/human/data/sample_train.txt) and follow [this tutorial](https://github.com/de-Boer-Lab/random-promoter-dream-challenge-2022/blob/main/benchmarks/human/DREAMNets_buildModel_Train_Predict.ipynb).
 
-Note: reverse orientation should have `_Reversed:` in its ID.
+Note: The code expects reverse orientation sequences have `_Reversed:` in its ID. If you are using `human_mpra_data.tar.gz` uploaded to [Zenodo](https://zenodo.org/records/10633252), mark the reverse orientation sequences with `_Reversed:`.
