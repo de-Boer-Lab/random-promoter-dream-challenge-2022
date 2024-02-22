@@ -33,8 +33,8 @@ You can use the prixfixe framework to benchmark your model architecture on the D
 
 ### Directly applying the DREAM-optimized models to your data
 
-You can directly train the DREAM-optimized models on your MPRA/STARR-seq data by following these tutorials. <br>
-[[single-task]](https://github.com/de-Boer-Lab/random-promoter-dream-challenge-2022/blob/main/benchmarks/human/DREAMNets_buildModel_Train_Predict.ipynb) [[multi-task]](https://github.com/de-Boer-Lab/random-promoter-dream-challenge-2022/blob/main/benchmarks/drosophila/DREAMNets_buildModel_Train_Predict.ipynb)
+You can directly train the DREAM-optimized models on your MPRA/STARR-seq/ATAC-seq data by following these tutorials. <br>
+[[single-task]](https://github.com/de-Boer-Lab/random-promoter-dream-challenge-2022/blob/main/benchmarks/human/DREAMNets_buildModel_Train_Predict.ipynb) [[multi-task]](https://github.com/de-Boer-Lab/random-promoter-dream-challenge-2022/blob/main/benchmarks/drosophila/DREAMNets_buildModel_Train_Predict.ipynb) [[atac-seq]](https://github.com/de-Boer-Lab/random-promoter-dream-challenge-2022/tree/main/benchmarks/atac-seq)
 
 ## Contributions
 
