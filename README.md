@@ -18,6 +18,8 @@ The `environment.yml` file specifies all required libraries for this project. If
 
 `conda env create -n dream -f environment.yml`
 
+If the environment file doesn't work for you, try installing each library sequentially, matching the versions specified in the environment.yml file, following the order discussed in [this issue thread](https://github.com/de-Boer-Lab/random-promoter-dream-challenge-2022/issues/2).
+
 ## Prix Fixe Framework
 
 Details regarding the Prix Fixe framework is presented [here](https://github.com/de-Boer-Lab/random-promoter-dream-challenge-2022/blob/main/prixfixe/readme.MD).
